@@ -24,6 +24,7 @@ class Container extends React.Component {
                     <h3>Favorite City</h3>
                 </div>
                 <div className="row">
+                    //TODO map on favorite Cities and make a file with these cities
                     <div className="col-sm">
                         <City />
                     </div>
