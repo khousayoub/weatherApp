@@ -1,8 +1,10 @@
 import React from "react";
 import City from "./City";
+import Cities from "../tools/FavoritCities"
 
 class Container extends React.Component {
     render() {
+        console.log(Cities.city2.name)
         return (
             <div className="jumbotron">
                 <div className="row">
@@ -23,23 +25,15 @@ class Container extends React.Component {
                 <div className="row">
                     <h3>Favorite City</h3>
                 </div>
-                <div className="row">
-                    //TODO map on favorite Cities and make a file with these cities
-                    <div className="col-sm">
-                        <City />
-                    </div>
-                    <div className="col-sm">
-                        <City />
-                    </div>
-                    <div className="col-sm">
-                        <City />
-                    </div>
-                    <div className="col-sm">
-                        <City />
-                    </div>
-                    <div className="col-sm">
-                        <City />
-                    </div>
+                <div className="row ">
+                    {Object.keys(Cities).map(
+                        key => <City 
+                        name={Cities[key].name}
+                        id={Cities[key].id} 
+                        image={Cities[key].image}
+                        location={Cities[key].location}
+                    />
+                    )}
                 </div>
             </div>
         )

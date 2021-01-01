@@ -1,11 +1,15 @@
 import React from "react";
+import "../style.scss"
 
 class City extends React.Component {
     render() {
+        console.log(this.props)
         return (
-            <div>
-                <img src="../images/london.jpg" className="img-thumbnail img-fluid rounded d-block" alt="London"/>
-                <h4 className="text-center">London 1</h4>  
+            <div className="col-sm align-self-center" >
+                <div class="gallery">
+                <img src={this.props.image} className="img-thumbnail rounded d-block" alt={this.props.name}/>
+                <div className="text-center desc">{this.props.name} - {this.props.location} </div> 
+                </div>
             </div>
         )
         
