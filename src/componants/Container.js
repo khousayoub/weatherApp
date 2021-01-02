@@ -3,8 +3,13 @@ import City from "./City";
 import Cities from "../tools/FavoritCities"
 
 class Container extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            cityInfo : Cities
+        };
+      }
     render() {
-        console.log(Cities.city2.name)
         return (
             <div className="jumbotron">
                 <div className="row">
@@ -26,14 +31,18 @@ class Container extends React.Component {
                     <h3>Favorite City</h3>
                 </div>
                 <div className="row ">
-                    {Object.keys(Cities).map(
-                        key => <City 
-                        name={Cities[key].name}
-                        id={Cities[key].id} 
-                        image={Cities[key].image}
-                        location={Cities[key].location}
-                    />
+                    {Object.keys(Cities).map((key, i) => {
+                         return (
+                             <div key={i}>
+                                <City 
+                                key={i} 
+                                cityInfo={this.state.cityInfo[key]}
+                                />                      
+                            </div>
+                            )
+                         }
                     )}
+
                 </div>
             </div>
         )
